@@ -25,6 +25,7 @@ public class Panel extends JPanel
 		private JButton profileJack  = new JButton("Jack Cummings");
 		private JButton profileScott = new JButton("Scott McKay");
 		private JButton profileDan = new JButton("Dan Bailey");
+		private JButton profileJake = new JButton("Jake Wolfe");
 		private JButton closePgrm    = new JButton("Exit");
 
 		public Panel()
@@ -42,6 +43,7 @@ public class Panel extends JPanel
 			profileJack.addActionListener( new ButtonListener());
 			profileScott.addActionListener(new ButtonListener());
 			profileDan.addActionListener(new ButtonListener());
+			profileJake.addActionListener(new ButtonListener());
 			closePgrm.addActionListener(new ButtonListener());
 
 			//Add content to panel on main-frame.
@@ -49,6 +51,7 @@ public class Panel extends JPanel
 			add(profileJack, BorderLayout.SOUTH);
 			add(profileScott, BorderLayout.SOUTH);
 			add(profileDan, BorderLayout.SOUTH);
+			add(profileJake, BorderLayout.SOUTH);
 			add(closePgrm);
 
 		}
@@ -69,6 +72,10 @@ public class Panel extends JPanel
 				if (source.getSource()==profileDan)
 				{
 					DanProfile.createWindow();
+				}
+				if (source.getSource() == profileJake)
+				{
+					JakeProfile.createWindow();
 				}
 				if (source.getSource() == closePgrm)
 				{
