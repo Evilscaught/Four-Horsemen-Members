@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.text.DefaultCaret;
 
-public class Jack {
+public class JackProfile {
 
 	static void createWindow() {
 		EventQueue.invokeLater(new Runnable()

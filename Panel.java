@@ -1,9 +1,10 @@
 /*Author(s): 		Jack Cummings, Scott McKay
  *Name of Group:	The Four Horsemen
- *Date Created: 	Wednesday, September 13th, 2017 @9:40 p.m. MST
+ *Date Created: 	Wednesday, September 11th, 2017
  *Class:			Software Science [CSCI 323-01]
  *Purpose of Class:	Main panel in window (frame)
  */
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -16,26 +17,38 @@ import javax.swing.SwingConstants;
 
 public class Panel extends JPanel
 {
-	private static final long serialVersionUID = 5509155261502497671L;
-
+		//Not sure what this does, but it makes Eclipse shut-up. :)
+		private static final long serialVersionUID = 5509155261502497671L;
+		
+		private JButton profileJack  = new JButton("Jack Cummings");
+		private JButton profileScott = new JButton("Scott McKay");
+	
 		public Panel()
 		{
-			JLabel textLabel = new JLabel("<<INSERT COMPANY NAME HERE>>",SwingConstants.CENTER); 
-			JButton button = new JButton("Jack Cummings");
+			JLabel textLabel = new JLabel("The Four Horsemen",SwingConstants.CENTER); 
 			
 			textLabel.setPreferredSize(new Dimension(300, 100));
 			
-			button.addActionListener( new ButtonListener());
+			profileJack.addActionListener( new ButtonListener());
+			profileScott.addActionListener(new ButtonListener());
 
 			add(textLabel, BorderLayout.CENTER); 
-			add(button, BorderLayout.SOUTH);
+			add(profileJack, BorderLayout.SOUTH);
+			add(profileScott, BorderLayout.SOUTH);
 		}
 
 		private class ButtonListener implements ActionListener
 		{
 			public void actionPerformed(ActionEvent source) 
 			{
-				Jack.createWindow();
+				if (source.getSource() == profileJack)
+				{
+					JackProfile.createWindow();
+				}
+				if (source.getSource() == profileScott)
+				{
+					ScottProfile.createWindow();
+				}
 			}
 		}
 }
