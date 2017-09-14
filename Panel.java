@@ -8,12 +8,9 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -30,24 +27,19 @@ public class Panel extends JPanel
 	
 		public Panel()
 		{
-			ImageIcon horsemen = new ImageIcon("images/four_horsemen.jpg");
-			
-			JLabel groupName = new JLabel("THE FOUR HORSEMEN", SwingConstants.CENTER); 
-			JLabel backgroundImage = new JLabel(horsemen); 
-
+			JLabel groupName = new JLabel("THE FOUR HORSEMEN", SwingConstants.CENTER);
 
 			groupName.setPreferredSize(new Dimension(300, 75));
 			groupName.setForeground(Color.WHITE);
-			
-			backgroundImage.setLayout(new BorderLayout());
-			
+
 			profileJack.addActionListener( new ButtonListener());
 			profileScott.addActionListener(new ButtonListener());
 			closePgrm.addActionListener(new ButtonListener());
 
 			setBackground(Color.DARK_GRAY);
 			
-			add(backgroundImage);
+			//Add content to panel on main-frame.
+			add(new ImageLoad(1146, 675, "images/four_horsemen.jpg"));
 			add(groupName, BorderLayout.CENTER); 
 			add(profileJack, BorderLayout.SOUTH);
 			add(profileScott, BorderLayout.SOUTH);
