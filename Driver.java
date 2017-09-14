@@ -6,6 +6,7 @@
  */
 
 import java.awt.Dimension;
+
 import javax.swing.JFrame;
 
 
@@ -15,7 +16,7 @@ public class Driver
 	{
 		JFrame driver = new JFrame("About Our Biz");
 		driver.getContentPane().add(new Panel());
-		driver.setPreferredSize(new Dimension(300, 300));
+		driver.setPreferredSize(new Dimension(1146, 800));
 		driver.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		driver.pack();
 		driver.setVisible(true);

@@ -6,10 +6,14 @@
  */
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -25,14 +29,25 @@ public class Panel extends JPanel
 	
 		public Panel()
 		{
-			JLabel textLabel = new JLabel("The Four Horsemen",SwingConstants.CENTER); 
+			ImageIcon horsemen = new ImageIcon("TheFourHorsemen.jpg");
 			
-			textLabel.setPreferredSize(new Dimension(300, 100));
+			JLabel groupName = new JLabel("THE FOUR HORSEMEN", SwingConstants.CENTER); 
+			JLabel backgroundImage = new JLabel(horsemen); 
+
+
+			
+			groupName.setPreferredSize(new Dimension(300, 75));
+			groupName.setForeground(Color.WHITE);
+			
+			backgroundImage.setLayout(new BorderLayout());
 			
 			profileJack.addActionListener( new ButtonListener());
 			profileScott.addActionListener(new ButtonListener());
 
-			add(textLabel, BorderLayout.CENTER); 
+			setBackground(Color.DARK_GRAY);
+			
+			add(backgroundImage);
+			add(groupName, BorderLayout.CENTER); 
 			add(profileJack, BorderLayout.SOUTH);
 			add(profileScott, BorderLayout.SOUTH);
 		}
@@ -50,5 +65,11 @@ public class Panel extends JPanel
 					ScottProfile.createWindow();
 				}
 			}
+		}
+		
+		@Override
+		protected void paintComponent(Graphics graphics)
+		{
+			super.paintComponent(graphics);
 		}
 }
