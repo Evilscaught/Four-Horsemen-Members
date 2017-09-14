@@ -11,15 +11,17 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
-
 
 public class ScottProfile 
 {
+	private static JFrame frame = new JFrame("About Scott McKay");
+	private static JButton close = new JButton("Close");
+	
 	static void createWindow() 
 	{
 		EventQueue.invokeLater(new Runnable()
@@ -27,28 +29,37 @@ public class ScottProfile
 			@Override
 			public void run()
 			{
-				JFrame frame = new JFrame("About Scott McKay");
-				frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				frame.setPreferredSize(new Dimension(800, 600));
-				frame.pack();
+				//------------------------------------------------------// Attributes
+				JPanel mainPanel = new JPanel();
+
 				
+				//------------------------------------------------------// Frame Parameters
+				frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				frame.setPreferredSize(new Dimension(1346, 800));
+				frame.pack();
 				frame.setLocationByPlatform(true);
 				frame.setVisible(true);
 				frame.setResizable(false);
-				
-				JPanel mainPanel = new JPanel();
 				frame.add(mainPanel);
+				//------------------------------------------------------// Panel Parameters
 				
-				JButton button = new JButton("Close");
-				button.addActionListener( new ActionListener()
-				{
-					public void actionPerformed(ActionEvent event)
-					{
-						frame.dispose();
-					}
-				});
-				mainPanel.add(button);
+				
+				close.addActionListener(new ButtonListener());
+				mainPanel.add(new ImageLoad(1346, 800, "images/scott_mckay.jpg"));
+				mainPanel.add(close);
 			}
 		});
+	}
+	
+	private static class ButtonListener implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent event) 
+		{
+			if (event.getSource() == close)
+			{
+				frame.dispose();
+			}
+		}
 	}
 }

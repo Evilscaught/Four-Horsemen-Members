@@ -26,16 +26,16 @@ public class Panel extends JPanel
 		
 		private JButton profileJack  = new JButton("Jack Cummings");
 		private JButton profileScott = new JButton("Scott McKay");
+		private JButton closePgrm    = new JButton("Exit");
 	
 		public Panel()
 		{
-			ImageIcon horsemen = new ImageIcon("TheFourHorsemen.jpg");
+			ImageIcon horsemen = new ImageIcon("images/four_horsemen.jpg");
 			
 			JLabel groupName = new JLabel("THE FOUR HORSEMEN", SwingConstants.CENTER); 
 			JLabel backgroundImage = new JLabel(horsemen); 
 
 
-			
 			groupName.setPreferredSize(new Dimension(300, 75));
 			groupName.setForeground(Color.WHITE);
 			
@@ -43,6 +43,7 @@ public class Panel extends JPanel
 			
 			profileJack.addActionListener( new ButtonListener());
 			profileScott.addActionListener(new ButtonListener());
+			closePgrm.addActionListener(new ButtonListener());
 
 			setBackground(Color.DARK_GRAY);
 			
@@ -50,6 +51,7 @@ public class Panel extends JPanel
 			add(groupName, BorderLayout.CENTER); 
 			add(profileJack, BorderLayout.SOUTH);
 			add(profileScott, BorderLayout.SOUTH);
+			add(closePgrm);
 		}
 
 		private class ButtonListener implements ActionListener
@@ -64,12 +66,10 @@ public class Panel extends JPanel
 				{
 					ScottProfile.createWindow();
 				}
+				if (source.getSource() == closePgrm)
+				{
+					System.exit(0);
+				}
 			}
-		}
-		
-		@Override
-		protected void paintComponent(Graphics graphics)
-		{
-			super.paintComponent(graphics);
 		}
 }

@@ -1,3 +1,11 @@
+/*Author(s): 				Jack Cummings
+ *Contributing Author(s): 	
+ *Name of Group:			The Four Horsemen
+ *Date Created: 			Tuesday, September 11th, 2017
+ *Class:					Software Science [CSCI 323-01]
+ *Purpose of Class:			Jack Cummings' Profile
+ */
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
@@ -68,7 +76,7 @@ public class JackProfile {
 				panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 				panel.setOpaque(true);
 				panel.add(scroller);
-				panel.add(new ImageLoad(200, 250));
+				panel.add(new ImageLoad(200, 250, "images/jack_cummings.jpg"));
 				panel.add(bottomPanel);
 
 				frame.getContentPane().add(BorderLayout.CENTER, panel);
