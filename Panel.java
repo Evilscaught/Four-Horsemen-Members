@@ -1,4 +1,4 @@
-/*Author(s): 		Jack Cummings, Scott McKay
+/*Author(s): 		Jack Cummings, Scott McKay, Dan Bailey
  *Name of Group:	The Four Horsemen
  *Date Created: 	Wednesday, September 11th, 2017
  *Class:			Software Science [CSCI 323-01]
@@ -21,60 +21,39 @@ public class Panel extends JPanel
 		//Not sure what this does, but it makes Eclipse shut-up. :)
 		private static final long serialVersionUID = 5509155261502497671L;
 
+		//Global Attributes
 		private JButton profileJack  = new JButton("Jack Cummings");
 		private JButton profileScott = new JButton("Scott McKay");
-<<<<<<< HEAD
 		private JButton profileDan = new JButton("Dan Bailey");
-
-		public Panel()
-		{
-			ImageIcon horsemen = new ImageIcon("TheFourHorsemen.jpg");
-
-			JLabel groupName = new JLabel("THE FOUR HORSEMEN", SwingConstants.CENTER);
-			JLabel backgroundImage = new JLabel(horsemen);
-
-
-=======
 		private JButton closePgrm    = new JButton("Exit");
 	
 		public Panel()
 		{
+			//Local Attributes
 			JLabel groupName = new JLabel("THE FOUR HORSEMEN", SwingConstants.CENTER);
->>>>>>> d47e9963b2ffc0d3261d6f28dabcb457399f872a
-
+			
+			//Title, group-name, and background image
+			setBackground(Color.DARK_GRAY);
+			add(new ImageLoad(1146, 675, "images/four_horsemen.jpg"));
 			groupName.setPreferredSize(new Dimension(300, 75));
 			groupName.setForeground(Color.WHITE);
-
-<<<<<<< HEAD
-			backgroundImage.setLayout(new BorderLayout());
-
+			
+			//Add Action Listeners to JButtons
 			profileJack.addActionListener( new ButtonListener());
 			profileScott.addActionListener(new ButtonListener());
 			profileDan.addActionListener(new ButtonListener());
+			closePgrm.addActionListener(new ButtonListener());
 
-			setBackground(Color.DARK_GRAY);
-
-			add(backgroundImage);
+			//Add content to panel on main-frame.
 			add(groupName, BorderLayout.CENTER);
 			add(profileJack, BorderLayout.SOUTH);
 			add(profileScott, BorderLayout.SOUTH);
 			add(profileDan, BorderLayout.SOUTH);
-=======
-			profileJack.addActionListener( new ButtonListener());
-			profileScott.addActionListener(new ButtonListener());
-			closePgrm.addActionListener(new ButtonListener());
-
-			setBackground(Color.DARK_GRAY);
-			
-			//Add content to panel on main-frame.
-			add(new ImageLoad(1146, 675, "images/four_horsemen.jpg"));
-			add(groupName, BorderLayout.CENTER); 
-			add(profileJack, BorderLayout.SOUTH);
-			add(profileScott, BorderLayout.SOUTH);
 			add(closePgrm);
->>>>>>> d47e9963b2ffc0d3261d6f28dabcb457399f872a
+
 		}
 
+		//This class allows JButtons (added to Panel constructor above) to perform actions
 		private class ButtonListener implements ActionListener
 		{
 			public void actionPerformed(ActionEvent source)
@@ -87,21 +66,10 @@ public class Panel extends JPanel
 				{
 					ScottProfile.createWindow();
 				}
-<<<<<<< HEAD
 				if (source.getSource()==profileDan)
 				{
 					DanProfile.createWindow();
 				}
-			}
-		}
-
-		@Override
-		protected void paintComponent(Graphics graphics)
-		{
-			super.paintComponent(graphics);
-		}
-}
-=======
 				if (source.getSource() == closePgrm)
 				{
 					System.exit(0);
@@ -109,4 +77,3 @@ public class Panel extends JPanel
 			}
 		}
 }
->>>>>>> d47e9963b2ffc0d3261d6f28dabcb457399f872a

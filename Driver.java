@@ -20,6 +20,6 @@ public class Driver
 		driver.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		driver.pack();
 		driver.setVisible(true);
-		driver.setResizable(false);
+		driver.setResizable(true);
 	}
 }

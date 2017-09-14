@@ -43,7 +43,7 @@ public class ScottProfile
 				profileFrame.pack();
 				profileFrame.setLocationByPlatform(true);
 				profileFrame.setVisible(true);
-				profileFrame.setResizable(false);
+				profileFrame.setResizable(true);
 				profileFrame.add(profilePanel);
 				//------------------------------------------------------// Panel Parameters
 				
