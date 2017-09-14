@@ -5,21 +5,25 @@
  *Class:					Software Science [CSCI 323-01]
  *Purpose of Class:			Dans  Profile
  */
+ import java.awt.BorderLayout;
+ import java.awt.Dimension;
+ import java.awt.EventQueue;
+ import java.awt.event.ActionEvent;
+ import java.awt.event.ActionListener;
 
-import java.awt.Dimension;
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
+ import javax.swing.ImageIcon;
+ import javax.swing.JButton;
+ import javax.swing.JFrame;
+ import javax.swing.JLabel;
+ import javax.swing.JPanel;
 
 
 public class DanProfile
 {
+	private static JFrame profileFrame = new JFrame("About Dan Bailey");
+	private static JButton close = new JButton("Close");
+
+
 	static void createWindow()
 	{
 		EventQueue.invokeLater(new Runnable()
@@ -27,38 +31,42 @@ public class DanProfile
 			@Override
 			public void run()
 			{
-				JFrame frame = new JFrame("About Dan Bailey");
-				frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				frame.setPreferredSize(new Dimension(600, 600));
-				frame.pack();
+				JPanel profilePanel = new JPanel();
+			JLabel aboutMe = new JLabel("<html>Name: Dan <br>Age: 26<br>I was born in missoula, I have an A.A degree from U of M<br>"+
+            "This is my third year in the computer science program. <br>I love being outside, hunting, fishing and pretty much all of that<br>"+
+            "I love sports, and Dogs are my favorite!</html>");
 
-				frame.setLocationByPlatform(true);
-				frame.setVisible(true);
-				frame.setResizable(false);
-
-
-
-
-				JPanel mainPanel = new JPanel();
-				frame.add(mainPanel);
+				profileFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				profileFrame.setPreferredSize(new Dimension(500, 700));
+				profileFrame.pack();
+				profileFrame.setLocationByPlatform(true);
+				profileFrame.setVisible(true);
+				profileFrame.setResizable(true);
+				profileFrame.add(profilePanel);
 
 
+				close.addActionListener(new ButtonListener());
 
-
-
-				JButton button = new JButton("Close");
-
-				button.addActionListener( new ActionListener()
-				{
-					public void actionPerformed(ActionEvent event)
-					{
-						frame.dispose();
-					}
-				});
-				mainPanel.add(button);
-
+				profilePanel.add(new ImageLoad(500, 500, "images/Dan.jpg"));
+				profilePanel.add(aboutMe);
+				profilePanel.add(close, BorderLayout.SOUTH);
 
 			}
 		});
+
 	}
+	private static class ButtonListener implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent event)
+		{
+			if (event.getSource() == close)
+			{
+				//Close profile
+				profileFrame.dispose();
+			}
+
+		}
+	}
+
 }

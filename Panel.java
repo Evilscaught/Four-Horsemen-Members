@@ -26,18 +26,18 @@ public class Panel extends JPanel
 		private JButton profileScott = new JButton("Scott McKay");
 		private JButton profileDan = new JButton("Dan Bailey");
 		private JButton closePgrm    = new JButton("Exit");
-	
+
 		public Panel()
 		{
 			//Local Attributes
 			JLabel groupName = new JLabel("THE FOUR HORSEMEN", SwingConstants.CENTER);
-			
+
 			//Title, group-name, and background image
 			setBackground(Color.DARK_GRAY);
 			add(new ImageLoad(1146, 675, "images/four_horsemen.jpg"));
 			groupName.setPreferredSize(new Dimension(300, 75));
 			groupName.setForeground(Color.WHITE);
-			
+
 			//Add Action Listeners to JButtons
 			profileJack.addActionListener( new ButtonListener());
 			profileScott.addActionListener(new ButtonListener());

@@ -17,15 +17,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class ScottProfile 
+public class ScottProfile
 {
 	private static JFrame profileFrame = new JFrame("About Scott McKay");
 	private static JFrame gifFrame = new JFrame("Fanchy Smanchy Gif!");
 	private static JButton close = new JButton("Close");
 	private static JButton closeGif = new JButton("Close");
 	private static JButton reqGifPanel = new JButton("Fanchy Smanchy GIF");
-	
-	static void createWindow() 
+
+	static void createWindow()
 	{
 		EventQueue.invokeLater(new Runnable()
 		{
@@ -36,7 +36,7 @@ public class ScottProfile
 				JPanel profilePanel = new JPanel();
 				JLabel profileDescrip = new JLabel("<html>Born in Missoula, MT<br>Went to Hellgate High School<br>Thought this assignment was due on Friday for some reason...<br>"
 						+ "A huge fan of pigeons (and birds in general)<br>Third year at the University of Montana<br>Graduating in a Masters Degree of Student Loan Debt</html>");
-				
+
 				//------------------------------------------------------// Frame Parameters
 				profileFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				profileFrame.setPreferredSize(new Dimension(1346, 1000));
@@ -46,10 +46,10 @@ public class ScottProfile
 				profileFrame.setResizable(true);
 				profileFrame.add(profilePanel);
 				//------------------------------------------------------// Panel Parameters
-				
+
 				close.addActionListener(new ButtonListener());
 				reqGifPanel.addActionListener(new ButtonListener());
-				
+
 				profilePanel.add(new ImageLoad(1346, 800, "images/scott_mckay.jpg"));
 				profilePanel.add(profileDescrip);
 				profilePanel.add(close, BorderLayout.SOUTH);
@@ -57,11 +57,11 @@ public class ScottProfile
 			}
 		});
 	}
-	
+
 	private static class ButtonListener implements ActionListener
 	{
 		@Override
-		public void actionPerformed(ActionEvent event) 
+		public void actionPerformed(ActionEvent event)
 		{
 			if (event.getSource() == close)
 			{
@@ -80,7 +80,7 @@ public class ScottProfile
 			}
 		}
 	}
-	
+
 	private static void createGifWindow()
 	{
 		EventQueue.invokeLater(new Runnable()
@@ -93,7 +93,7 @@ public class ScottProfile
 				ImageIcon gifPath = new ImageIcon("images/sunglasses_fail.gif");
 				JLabel    gif = new JLabel(gifPath);
 
-				
+
 				//------------------------------------------------------// Frame Parameters
 				gifFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				gifFrame.setPreferredSize(new Dimension(365, 275));
@@ -103,9 +103,9 @@ public class ScottProfile
 				gifFrame.setResizable(false);
 				//------------------------------------------------------// Panel Parameters
 				gifFrame.add(gifPanel);
-				
+
 				closeGif.addActionListener(new ButtonListener());
-				
+
 				gifPanel.add(gif);
 				gifPanel.add(closeGif);
 			}
