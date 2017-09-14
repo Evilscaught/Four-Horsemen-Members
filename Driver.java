@@ -10,7 +10,7 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 
 
-public class Driver 
+public class Driver
 {
 	public static void main(String[] args)
 	{
