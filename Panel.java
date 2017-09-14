@@ -8,12 +8,9 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -26,6 +23,7 @@ public class Panel extends JPanel
 
 		private JButton profileJack  = new JButton("Jack Cummings");
 		private JButton profileScott = new JButton("Scott McKay");
+<<<<<<< HEAD
 		private JButton profileDan = new JButton("Dan Bailey");
 
 		public Panel()
@@ -36,10 +34,18 @@ public class Panel extends JPanel
 			JLabel backgroundImage = new JLabel(horsemen);
 
 
+=======
+		private JButton closePgrm    = new JButton("Exit");
+	
+		public Panel()
+		{
+			JLabel groupName = new JLabel("THE FOUR HORSEMEN", SwingConstants.CENTER);
+>>>>>>> d47e9963b2ffc0d3261d6f28dabcb457399f872a
 
 			groupName.setPreferredSize(new Dimension(300, 75));
 			groupName.setForeground(Color.WHITE);
 
+<<<<<<< HEAD
 			backgroundImage.setLayout(new BorderLayout());
 
 			profileJack.addActionListener( new ButtonListener());
@@ -53,6 +59,20 @@ public class Panel extends JPanel
 			add(profileJack, BorderLayout.SOUTH);
 			add(profileScott, BorderLayout.SOUTH);
 			add(profileDan, BorderLayout.SOUTH);
+=======
+			profileJack.addActionListener( new ButtonListener());
+			profileScott.addActionListener(new ButtonListener());
+			closePgrm.addActionListener(new ButtonListener());
+
+			setBackground(Color.DARK_GRAY);
+			
+			//Add content to panel on main-frame.
+			add(new ImageLoad(1146, 675, "images/four_horsemen.jpg"));
+			add(groupName, BorderLayout.CENTER); 
+			add(profileJack, BorderLayout.SOUTH);
+			add(profileScott, BorderLayout.SOUTH);
+			add(closePgrm);
+>>>>>>> d47e9963b2ffc0d3261d6f28dabcb457399f872a
 		}
 
 		private class ButtonListener implements ActionListener
@@ -67,6 +87,7 @@ public class Panel extends JPanel
 				{
 					ScottProfile.createWindow();
 				}
+<<<<<<< HEAD
 				if (source.getSource()==profileDan)
 				{
 					DanProfile.createWindow();
@@ -80,3 +101,12 @@ public class Panel extends JPanel
 			super.paintComponent(graphics);
 		}
 }
+=======
+				if (source.getSource() == closePgrm)
+				{
+					System.exit(0);
+				}
+			}
+		}
+}
+>>>>>>> d47e9963b2ffc0d3261d6f28dabcb457399f872a
